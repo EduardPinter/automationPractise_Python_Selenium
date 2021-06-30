@@ -1,16 +1,12 @@
-import time
 import unittest
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
 import data
 from pages.mainPage import MainPage
-from pages.searchPage import SearchPage
 
 
-
-class CheckoutAssertation(unittest.TestCase):
-
+class ScreenshotElement(unittest.TestCase):
 
     def setUp(self):
 
@@ -27,15 +23,13 @@ class CheckoutAssertation(unittest.TestCase):
         self.driver.implicitly_wait(5)
         self.driver.maximize_window()
 
-    def test_description_assertation(self):
+    def test_screenshot_red_dress(self):
         mainPage = MainPage(self.driver)
-        mainPage.search_bar(data.DescriptionAssert.search_item)
-        mainPage.click_search_button()
-        searchPage = SearchPage(self.driver)
-        searchPage.hover_blouse_item()
-        searchPage.quick_view_item()
-        searchPage.switch_to_iframe()
-        self.assertEqual(searchPage.blouse_item_desc(), data.DescriptionAssert.blouse_item_desc)
+        mainPage.click_next_button_slider()
+        mainPage.click_next_button_slider()
+        self.assertEqual(mainPage.slider_css_property(), data.ScreenshotAssert.pixelsRedDress)
+        self.assertEqual(mainPage.src_property(), data.ScreenshotAssert.srcOfPicture)
+        mainPage.screenshot_element()
 
     def tearDown(self):
         self.driver.close()
