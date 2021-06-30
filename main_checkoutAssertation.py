@@ -28,7 +28,7 @@ class CheckoutAssertation(unittest.TestCase):
         self.driver.implicitly_wait(5)
         self.driver.maximize_window()
 
-    def test_hover_elements(self):
+    def test_checkout_assertation(self):
         mainPage = MainPage(self.driver)
         mainPage.hover_women_section()
         mainPage.click_tshirt_section()
